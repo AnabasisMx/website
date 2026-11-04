@@ -259,6 +259,12 @@ footer{border-top:1px solid var(--line-d);padding:56px 0 40px;color:var(--muted-
   .hero h1 .ln>span{transform:none}.hero h1 .wide{font-stretch:100%}
 }
 </style>
+<!-- Meta Pixel (Anabasis web) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2205122916702355');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2205122916702355&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
 
@@ -476,6 +482,9 @@ footer{border-top:1px solid var(--line-d);padding:56px 0 40px;color:var(--muted-
   var WA='528184613223', MSG='Hola, Anabasis. Quiero agendar un brief para el diseño de mi oficina.';
   $$('.js-wa').forEach(function(a){a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(MSG);a.target='_blank';a.rel='noopener'});
   var m='hola'+'@'+'anabasis.mx'; $('#mail').href='mailto:'+m;
+  var fb=function(){try{if(window.fbq)fbq.apply(null,arguments)}catch(e){}};
+  $$('a[href*="pro.anabasis.mx"]').forEach(function(a){a.addEventListener('click',function(){fb('trackCustom','ClicEnviarFotos',{seccion:(a.href.match(/utm_medium=([^&]+)/)||[])[1]||''})})});
+  $$('.js-wa').forEach(function(a){a.addEventListener('click',function(){fb('track','Contact',{canal:'whatsapp'})})});
 
   // nav
   var nav=$('#nav'); var onNav=function(){nav.classList.toggle('solid',scrollY>30)}; onNav(); addEventListener('scroll',onNav,{passive:true});
